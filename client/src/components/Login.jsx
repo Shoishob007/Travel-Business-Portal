@@ -26,12 +26,12 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen bg-gray-100 dark:bg-gray-900">
       <form
         onSubmit={handleLogin}
-        className="bg-white p-8 rounded-lg shadow-md w-96"
+        className="bg-white p-8 rounded-lg shadow-md w-96 dark:bg-gray-800"
       >
-        <h2 className="mb-4 text-2xl font-bold text-center text-emerald-600">
+        <h2 className="mb-4 text-2xl font-bold text-center text-emerald-600 dark:text-emerald-400">
           Login
         </h2>
         <input
@@ -39,7 +39,7 @@ const Login = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="block w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="block w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           required
         />
         <input
@@ -47,12 +47,12 @@ const Login = () => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="block w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="block w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           required
         />
         <button
           type="submit"
-          className="w-full p-3 text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition"
+          className="w-full p-3 text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition dark:hover:bg-emerald-700"
         >
           Login
         </button>

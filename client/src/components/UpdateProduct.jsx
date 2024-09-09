@@ -81,12 +81,12 @@ const UpdateProduct = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen bg-gray-100 dark:bg-gray-900">
       <form
         onSubmit={handleUpdate}
-        className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
+        className="bg-white p-6 rounded-lg shadow-md w-full max-w-md dark:bg-gray-800"
       >
-        <h2 className="mb-4 text-2xl font-bold text-center text-emerald-600">
+        <h2 className="mb-4 text-2xl font-bold text-center text-emerald-600 dark:text-emerald-400">
           Update Product
         </h2>
         <input
@@ -94,7 +94,7 @@ const UpdateProduct = () => {
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="block w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="block w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           required
         />
         <input
@@ -102,19 +102,19 @@ const UpdateProduct = () => {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="block w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="block w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           required
         />
         <textarea
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="block w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="block w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           required
         />
         <button
           type="submit"
-          className="w-full p-2 text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition"
+          className="w-full p-2 text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 transition dark:bg-emerald-600 dark:hover:bg-emerald-700"
         >
           Update Product
         </button>

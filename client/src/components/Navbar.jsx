@@ -1,17 +1,47 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import SunIcon from "../assets/sunIcon";
+import MoonIcon from "../assets/moonIcon";
+import MenuIcon from "../assets/MenuIcon";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false); // State for mobile menu
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     navigate("/login");
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    if (!isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  useEffect(() => {
+    const darkModePreference = localStorage.getItem("dark-mode") === "true";
+    setIsDarkMode(darkModePreference);
+    if (darkModePreference) {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("dark-mode", isDarkMode);
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
   return (
-    <nav className="bg-emerald-600 p-4 shadow-md">
+    <nav className="bg-emerald-600 p-4 shadow-md dark:bg-gray-900">
       <div className="container mx-auto flex justify-between items-center">
         <Link
           to="/manage"
@@ -38,31 +68,24 @@ const Navbar = () => {
           >
             Logout
           </button>
+          <button
+            onClick={toggleDarkMode}
+            className="text-white hover:text-emerald-300 transition flex items-center"
+          >
+            {isDarkMode ? <SunIcon /> : <MoonIcon />}
+          </button>
         </div>
         {/* Hamburger Menu for Mobile */}
         <button
           className="md:hidden text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
+          <MenuIcon />
         </button>
       </div>
       {/* Mobile Menu */}
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
-        <div className="flex flex-col space-y-2 p-4">
+        <div className="flex flex-col justify-center items-center space-y-2 p-4">
           <Link
             to="/manage"
             className="text-white hover:text-emerald-300 transition"
@@ -80,6 +103,12 @@ const Navbar = () => {
             className="text-white hover:text-emerald-300 transition"
           >
             Logout
+          </button>
+          <button
+            onClick={toggleDarkMode}
+            className="text-white hover:text-emerald-300 transition flex items-center"
+          >
+            {isDarkMode ? <SunIcon /> : <MoonIcon />}
           </button>
         </div>
       </div>

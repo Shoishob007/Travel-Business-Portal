@@ -69,12 +69,14 @@ const ManageProducts = () => {
   }, []);
 
   return (
-    <div className="p-6 bg-white">
-      <h2 className="mb-4 text-2xl font-bold">Manage Products</h2>
+    <div className="p-6 bg-white dark:bg-gray-800">
+      <h2 className="mb-4 text-2xl font-bold text-center dark:text-white">
+        Manage Products
+      </h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border rounded-lg shadow-md">
+        <table className="min-w-full bg-white border rounded-lg shadow-md dark:bg-gray-700">
           <thead>
-            <tr className="bg-emerald-500 text-white rounded-t-lg">
+            <tr className="bg-emerald-500 text-white rounded-t-lg dark:bg-gray-800">
               <th className="border px-4 py-3">ID</th>
               <th className="border px-4 py-3">Name</th>
               <th className="border px-4 py-3">Title</th>
@@ -84,7 +86,10 @@ const ManageProducts = () => {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr key={product.id} className="hover:bg-gray-100 transition">
+              <tr
+                key={product.id}
+                className="hover:bg-gray-100 dark:text-gray-200 transition dark:hover:bg-gray-600"
+              >
                 <td className="border px-4 py-3">{product.id}</td>
                 <td className="border px-4 py-3">{product.name}</td>
                 <td className="border px-4 py-3">{product.title}</td>
@@ -92,13 +97,13 @@ const ManageProducts = () => {
                 <td className="border px-4 py-3 flex justify-center items-center">
                   <button
                     onClick={() => navigate(`/update/${product.id}`)}
-                    className="mr-2 text-emerald-500 hover:underline"
+                    className="mr-2 text-emerald-500 hover:underline dark:text-emerald-400"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDelete(product.id)}
-                    className="text-red-500 hover:underline"
+                    className="text-red-500 hover:underline dark:text-red-400"
                   >
                     Delete
                   </button>
