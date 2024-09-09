@@ -56,7 +56,7 @@ The frontend development server should be running on `http://localhost:5173/`.
 
 ## Deployment
 
-The application is deployed on Vercel. You can access it [here](https://travel-business-portal.vercel.app/manage).
+The application is deployed on Vercel. You can access it [here](https://travel-business-portal.vercel.app).
 
 ## Learnings and Challenges
 
