@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import SunIcon from "../assets/sunIcon";
-import MoonIcon from "../assets/moonIcon";
-import MenuIcon from "../assets/MenuIcon";
+import SunIcon from "../assets/sunIcon.jsx";
+import MoonIcon from "../assets/moonIcon.jsx";
+import MenuIcon from "../assets/MenuIcon.jsx";
 
 const Navbar = () => {
   const navigate = useNavigate();
